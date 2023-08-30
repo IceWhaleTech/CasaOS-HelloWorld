@@ -1,0 +1,42 @@
+openapi: 3.0.3
+
+info:
+  title: CasaOS Hello World API
+  version: v2
+
+servers:
+  - url: /v2/hello_world
+
+paths:
+  /ping:
+    get:
+      summary: Ping the API
+      operationId: ping
+      responses:
+        "200":
+          $ref: "#/components/responses/PongOK"
+
+components:
+  responses:
+    PongOK:
+      description: OK
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/BaseResponse"
+              - properties:
+                  data:
+                    $ref: "#/components/schemas/Pong"
+
+  schemas:
+    BaseResponse:
+      properties:
+        message:
+          description: message returned by server side if there is any
+          type: string
+          example: ""
+
+    Pong:
+      type: string
+      example: Pong

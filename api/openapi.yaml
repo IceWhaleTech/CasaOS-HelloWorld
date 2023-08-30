@@ -16,6 +16,14 @@ paths:
         "200": # For simplicity, we only define the 200 response. In real world, you should define all possible responses, such as 4xx, 5xx, etc.
           $ref: "#/components/responses/PongOK"
 
+  /hello:
+    get:
+      summary: Hello World
+      operationId: hello
+      responses:
+        "200":
+          $ref: "#/components/responses/WorldOK"
+
 components:
   responses:
     PongOK:
@@ -29,6 +37,17 @@ components:
                   data:
                     $ref: "#/components/schemas/Pong" # The `data` property contains the actual `Pong` we want to return
 
+    WorldOK:
+      description: OK
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/BaseResponse"
+              - properties:
+                  data:
+                    $ref: "#/components/schemas/World"
+
   schemas:
     BaseResponse: # Every response should inherit from BaseResponse
       properties:
@@ -39,3 +58,7 @@ components:
     Pong:
       type: string
       example: Pong
+
+    World:
+      type: string
+      example: World

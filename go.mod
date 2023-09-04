@@ -1,6 +1,6 @@
 module github.com/IceWhaleTech/CasaOS-HelloWorld
 
-go 1.21.0
+go 1.21
 
 require (
 	github.com/IceWhaleTech/CasaOS-Common v0.4.4

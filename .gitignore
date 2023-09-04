@@ -16,6 +16,7 @@
 .vscode/
 .idea/
 
+build/
 dist/
 target/
 codegen/

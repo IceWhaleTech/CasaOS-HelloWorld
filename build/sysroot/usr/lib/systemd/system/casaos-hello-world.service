@@ -1,0 +1,11 @@
+[Unit]
+After=casaos-gateway.service
+Description=CasaOS Hello World Service
+
+[Service]
+ExecStart=/usr/bin/casaos-hello-world
+Restart=always
+Type=notify
+
+[Install]
+WantedBy=multi-user.target
